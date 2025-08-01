@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Inicio - Café Artesano{% endblock %}
+
+{% block content %}
+<div class="text-center py-5 bg-light rounded-4 shadow-sm">
+  <h1 class="display-4 fw-bold mb-3" style="color: #6f4e37;">Bienvenido a Café Artesano</h1>
+  <p class="lead mb-4" style="max-width: 600px; margin: 0 auto; color: #855e42;">
+    El lugar perfecto para amantes del café y las novedades artesanales. Descubrí recetas, eventos y mucho más.
+  </p>
+  <a href="{% url 'novedades:list' %}" class="btn btn-lg btn-warning px-4 me-2 shadow-sm" style="border-radius: 50px;">
+    Ver Novedades
+  </a>
+  <a href="{% url 'novedades:about' %}" class="btn btn-outline-secondary btn-lg px-4 shadow-sm" style="border-radius: 50px;">
+    Sobre Nosotros
+  </a>
+</div>
+
+<section class="my-5">
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0 rounded-4">
+        <img src="{% static 'images/cafe_granos.jpg' %}" class="card-img-top rounded-top-4" alt="Granos de café">
+        <div class="card-body">
+          <h5 class="card-title text-center" style="color: #6f4e37;">Granos Premium</h5>
+          <p class="card-text text-center text-muted">Seleccionamos solo los mejores granos para vos.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0 rounded-4">
+        <img src="{% static 'images/taller_cafe.jpg' %}" class="card-img-top rounded-top-4" alt="Taller de café">
+        <div class="card-body">
+          <h5 class="card-title text-center" style="color: #6f4e37;">Talleres Artesanales</h5>
+          <p class="card-text text-center text-muted">Aprendé a preparar café con técnicas especiales.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0 rounded-4">
+        <img src="{% static 'images/comunidad_cafe.jpg' %}" class="card-img-top rounded-top-4" alt="Comunidad de café">
+        <div class="card-body">
+          <h5 class="card-title text-center" style="color: #6f4e37;">Comunidad</h5>
+          <p class="card-text text-center text-muted">Conectate con otros amantes del café.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

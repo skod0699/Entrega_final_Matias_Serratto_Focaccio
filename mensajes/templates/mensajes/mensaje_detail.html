@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ object.asunto }}</h2>
+<p><strong>De:</strong> {{ object.remitente.username }}</p>
+<p><strong>Para:</strong> {{ object.destinatario.username }}</p>
+<p><strong>Fecha:</strong> {{ object.fecha_envio|date:"d/m/Y H:i" }}</p>
+<hr>
+<p>{{ object.contenido }}</p>
+<a href="{% url 'mensajes:lista' %}">Volver a la lista</a>
+{% endblock %}

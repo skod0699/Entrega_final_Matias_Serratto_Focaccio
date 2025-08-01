@@ -1,0 +1,332 @@
+/* blog.css - Estilo Premium actualizado para Café Artesano */
+
+/* Reset y base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('../img/fondo-cafe.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #f0f0f0; /* blanco claro */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Contenedor central transparente */
+.container {
+  max-width: 1080px;
+  margin: 4rem auto 6rem;
+  padding: 2rem;
+  background: transparent;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.45);
+  color: #f0f0f0; /* texto blanco */
+}
+
+/* Títulos principales */
+.main-title {
+  font-weight: 900;
+  font-size: 3.6rem;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.25rem;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.85);
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 1.6rem;
+  text-align: center;
+  color: #ddd;
+  margin-bottom: 3.5rem;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Grid de posts */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.8rem;
+  padding-bottom: 4rem;
+}
+
+/* Tarjeta post con fondo oscuro semitransparente para contraste */
+.post-card {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 22px;
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.4),
+    0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 420px;
+  color: #f0f0f0;
+}
+
+.post-card:hover,
+.post-card:focus {
+  outline: none;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.8),
+    0 10px 25px rgba(0, 0, 0, 0.5);
+  transform: translateY(-10px);
+}
+
+/* Imagen post completa */
+.post-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background-color: transparent;
+  padding: 1rem;
+  border-bottom: 5px solid #fff;
+  transition: box-shadow 0.4s ease;
+  user-select: none;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0 0 20px 20px;
+}
+
+.post-card:hover .post-image {
+  box-shadow:
+    0 0 15px 5px rgba(255, 255, 255, 0.6);
+}
+
+/* Contenido interno */
+.post-body {
+  padding: 1.6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.post-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+  user-select: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+}
+
+.post-date {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  user-select: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.post-excerpt {
+  font-size: 1.1rem;
+  color: #eee;
+  line-height: 1.7;
+  flex-grow: 1;
+  overflow-wrap: break-word;
+  user-select: text;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Mensaje sin posts */
+.empty-message {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #bbb;
+  text-align: center;
+  margin-top: 4rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Detalle del post */
+.post-detail {
+  max-width: 760px;
+  margin: 5rem auto 6rem;
+  padding: 3rem 4rem;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 32px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    0 10px 20px rgba(0, 0, 0, 0.3);
+  color: #f0f0f0;
+  line-height: 1.85;
+  font-weight: 400;
+  font-size: 1.18rem;
+  user-select: text;
+}
+
+.detail-title {
+  font-weight: 900;
+  font-size: 3.2rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  user-select: none;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.85);
+}
+
+.detail-date {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 2.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  user-select: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.detail-image {
+  width: 100%;
+  max-height: 320px;
+  border-radius: 28px;
+  object-fit: contain;
+  margin-bottom: 3rem;
+  box-shadow:
+    0 15px 35px rgba(255, 255, 255, 0.6);
+  transition: box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.detail-image:hover {
+  box-shadow:
+    0 25px 70px rgba(255, 255, 255, 0.8);
+}
+
+.detail-content {
+  padding: 0 1rem;
+  white-space: pre-line;
+  color: #eee;
+  user-select: text;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Link de vuelta */
+.back-link {
+  display: block;
+  margin: 4rem auto 0;
+  width: fit-content;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  user-select: none;
+}
+
+.back-link:hover,
+.back-link:focus {
+  color: #ccc;
+  border-color: #ccc;
+  outline: none;
+}
+
+/* Scroll suave para anclas */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .container {
+    margin: 2rem auto 4rem;
+    padding: 0 1.2rem;
+    border-radius: 15px;
+  }
+
+  .main-title {
+    font-size: 2.6rem;
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+  }
+
+  .post-detail {
+    padding: 2rem 1.5rem;
+    margin: 3rem auto 4rem;
+  }
+
+  .posts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+  }
+
+  .post-image {
+    height: 150px;
+  }
+
+  .detail-image {
+    max-height: 220px;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Botón estilo café */
+.btn-cafe {
+  background-color: #fff;
+  color: #6f4e37;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-cafe:hover {
+  background-color: #d9d9d9;
+  color: #4e3824;
+}
+
+/* Enlace estilo café */
+a.cafe-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a.cafe-link:hover {
+  color: #ccc;
+}
+
+/* Footer alternativo cafetero */
+footer.cafe-footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #f7f0e6;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 2px solid #fff;
+}

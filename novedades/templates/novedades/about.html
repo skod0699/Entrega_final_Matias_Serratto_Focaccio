@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Acerca de Café Artesano{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light rounded-4 shadow-sm">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <!-- Logo en lugar de la foto -->
+        <img src="{% static 'novedades/img/cafe_artesano_logo.png' %}" alt="Logo Café Artesano" class="img-fluid rounded-4 shadow" style="max-width: 300px;">
+      </div>
+      <div class="col-md-6 text-start">
+        <h2 class="mb-3" style="color: #6f4e37; font-weight: 700;">Nuestra historia</h2>
+        <p class="lead text-muted">
+          En Café Artesano nos apasiona el café de calidad y el arte de prepararlo. Desde nuestros inicios,
+          hemos trabajado con productores locales para seleccionar los mejores granos y compartir la cultura
+          del café con nuestra comunidad.
+        </p>
+        <p class="text-muted">
+          Nuestro compromiso es ofrecer experiencias auténticas a través de talleres, recetas y eventos
+          que unen a amantes del café de todas partes. ¡Bienvenidos a formar parte de esta familia!
+        </p>
+        <a href="{% url 'novedades:list' %}" class="btn btn-warning rounded-pill px-4 mt-3 shadow-sm">Ver Novedades</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <div class="container text-center">
+    <h3 class="mb-4" style="color: #6f4e37;">Nuestro equipo</h3>
+    <div class="row justify-content-center g-4">
+      <div class="col-sm-6 col-md-4">
+        <div class="card border-0 shadow-sm rounded-4">
+          <img src="{% static 'novedades/img/mati_barista.jpeg' %}" class="card-img-top rounded-top-4" alt="Matías">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #6f4e37;">Matías Serratto</h5>
+            <p class="card-text text-muted">Fundador y barista experto con pasión por el café artesanal.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Podés agregar más miembros del equipo aquí -->
+    </div>
+  </div>
+</section>
+
+{% endblock %}

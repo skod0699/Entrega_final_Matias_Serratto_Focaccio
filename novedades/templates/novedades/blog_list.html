@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'novedades/css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="main-title">Café Artesano</h1>
+    <h2 class="subtitle">Novedades del Café Artesano</h2>
+
+    {% if object_list %}
+      <div class="posts-grid">
+        {% for post in object_list %}
+          <article class="post-card" data-url="{% url 'novedades:detail' post.pk %}" role="button" tabindex="0">
+            {% if post.imagen %}
+              <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" class="post-image">
+            {% endif %}
+            <div class="post-body">
+              <h3 class="post-title">{{ post.titulo }}</h3>
+              <p class="post-date">{{ post.fecha|date:"d M Y" }}</p>
+              <p class="post-excerpt">{{ post.contenido|truncatechars:150|linebreaksbr }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="empty-message">No hay publicaciones todavía. ¡Agregá alguna desde el administrador!</p>
+    {% endif %}
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.post-card[data-url]').forEach(function (card) {
+        card.addEventListener('click', function () {
+          const url = card.getAttribute('data-url');
+          window.location.href = url;
+        });
+        card.addEventListener('keypress', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      });
+    });
+  </script>
+{% endblock %}

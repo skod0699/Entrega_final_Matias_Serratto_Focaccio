@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Perfil | Café Artesano{% endblock %}
+
+{% block content %}
+<div class="container mt-5 p-4 bg-white text-dark rounded" style="max-width: 600px;">
+  <h2 class="mb-4">Mi perfil</h2>
+
+  <!-- Datos actuales del usuario -->
+  <div class="mb-4 p-3 border rounded bg-light text-dark">
+    <h4>Datos actuales</h4>
+    <p><strong>Username:</strong> {{ request.user.username }}</p>
+    <p><strong>Email:</strong> {{ request.user.email }}</p>
+    <p><strong>Bio:</strong> {{ request.user.profile.bio|default:"(Sin descripción)" }}</p>
+    <p><strong>Fecha de nacimiento:</strong> {{ request.user.profile.birth_date|default:"(No especificada)" }}</p>
+    {% if request.user.profile.avatar %}
+      <p><strong>Avatar:</strong></p>
+      <img src="{{ request.user.profile.avatar.url }}" alt="Avatar" style="max-width: 150px; border-radius: 10px;">
+    {% else %}
+      <p><em>No has subido avatar aún.</em></p>
+    {% endif %}
+  </div>
+
+  <!-- Formulario para editar perfil -->
+  <form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <fieldset class="mb-3">
+      <legend>Datos de usuario</legend>
+      {{ u_form.as_p }}
+      {% if u_form.errors %}
+        <div class="alert alert-danger">
+          <strong>Errores en Datos de usuario:</strong>
+          {{ u_form.errors }}
+        </div>
+      {% endif %}
+    </fieldset>
+
+    <fieldset class="mb-3">
+      <legend>Perfil</legend>
+      {{ p_form.as_p }}
+      {% if p_form.errors %}
+        <div class="alert alert-danger">
+          <strong>Errores en Perfil:</strong>
+          {{ p_form.errors }}
+        </div>
+      {% endif %}
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+  </form>
+</div>
+{% endblock %}

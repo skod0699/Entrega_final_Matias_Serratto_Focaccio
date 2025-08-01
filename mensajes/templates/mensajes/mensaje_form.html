@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Enviar nuevo mensaje</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enviar</button>
+</form>
+<a href="{% url 'mensajes:lista' %}">Volver a la lista</a>
+{% endblock %}
