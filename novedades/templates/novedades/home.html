@@ -18,34 +18,33 @@
 </div>
 
 <section class="my-5">
+  <h2 class="mb-4 text-center" style="color: #6f4e37;">Sugerencias para vos</h2>
+
   <div class="row g-4 justify-content-center">
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm border-0 rounded-4">
-        <img src="{% static 'images/cafe_granos.jpg' %}" class="card-img-top rounded-top-4" alt="Granos de café">
-        <div class="card-body">
-          <h5 class="card-title text-center" style="color: #6f4e37;">Granos Premium</h5>
-          <p class="card-text text-center text-muted">Seleccionamos solo los mejores granos para vos.</p>
+    {% if posts %}
+      {% for post in posts %}
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm rounded-4">
+            {% if post.imagen %}
+              <img src="{{ post.imagen.url }}" class="card-img-top rounded-top-4" alt="{{ post.titulo }}">
+            {% else %}
+              <img src="{% static 'images/default_post.jpg' %}" class="card-img-top rounded-top-4" alt="Imagen por defecto">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title text-center" style="color: #6f4e37;">{{ post.titulo }}</h5>
+              <p class="card-text text-center text-muted">{{ post.descripcion|truncatewords:20 }}</p>
+            </div>
+            <div class="card-footer bg-transparent text-center">
+              <a href="{% url 'novedades:detail' post.pk %}" class="btn btn-primary btn-sm px-4" style="border-radius: 50px;">
+                Leer más
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm border-0 rounded-4">
-        <img src="{% static 'images/taller_cafe.jpg' %}" class="card-img-top rounded-top-4" alt="Taller de café">
-        <div class="card-body">
-          <h5 class="card-title text-center" style="color: #6f4e37;">Talleres Artesanales</h5>
-          <p class="card-text text-center text-muted">Aprendé a preparar café con técnicas especiales.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card h-100 shadow-sm border-0 rounded-4">
-        <img src="{% static 'images/comunidad_cafe.jpg' %}" class="card-img-top rounded-top-4" alt="Comunidad de café">
-        <div class="card-body">
-          <h5 class="card-title text-center" style="color: #6f4e37;">Comunidad</h5>
-          <p class="card-text text-center text-muted">Conectate con otros amantes del café.</p>
-        </div>
-      </div>
-    </div>
+      {% endfor %}
+    {% else %}
+      <p class="text-center text-muted">No hay sugerencias para mostrar por ahora.</p>
+    {% endif %}
   </div>
 </section>
 {% endblock %}
