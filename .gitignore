@@ -1,0 +1,17 @@
+# Entorno virtual
+venv/
+
+# Archivos pycache
+__pycache__/
+*.py[cod]
+
+# Base de datos
+db.sqlite3
+
+# Archivos estáticos y media generados
+/static/
+/media/
+
+# Archivos de sistema (ejemplo Windows)
+Thumbs.db
+.DS_Store
